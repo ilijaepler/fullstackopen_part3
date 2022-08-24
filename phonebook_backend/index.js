@@ -27,7 +27,7 @@ let persons = [
 
 app.use(express.json())
 app.use(express.static('build'))
-app.use(cors())
+app.use(cors({origin: true, credentials: true}))
 
 app.get('/info', (request, response) => {
     response.send(`<p>Phonebook has info for ${persons.length} people</p>
