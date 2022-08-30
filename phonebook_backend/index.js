@@ -99,12 +99,14 @@ app.post('/api/persons', (request, response) => {
         })
     }
 
-    // fix this check
-    /*if(Person.find({name: body.name})){
+    Person.find({name: body.name})
+    .then(person => {
+      if(person){
         response.status(400).json({
-            error: 'name must be unique'
+          error: 'name must be unique'
         })
-    }*/
+      }
+    })
 
     const person = new Person({
         name: body.name,
