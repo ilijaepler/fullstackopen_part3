@@ -98,11 +98,11 @@ app.post('/api/persons', (request, response) => {
     }
 
     // fix this to check to the db
-    if(person.get({name: body.name})){
+    /*if(person.get({name: body.name})){
         response.status(400).json({
             error: 'name must be unique'
         })
-    }
+    }*/
 
     const person = new Person({
         name: body.name,
