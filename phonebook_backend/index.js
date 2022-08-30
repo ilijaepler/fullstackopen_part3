@@ -98,7 +98,7 @@ app.post('/api/persons', (request, response) => {
     }
 
     // fix this to check to the db
-    if(Person.get({name: body.name})){
+    if(Person.find({name: body.name})){
         response.status(400).json({
             error: 'name must be unique'
         })
